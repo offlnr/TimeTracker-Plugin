@@ -26,12 +26,12 @@ public final class TimeTracker extends JavaPlugin {
     public void onEnable() {
         saveDefaultConfig();
         loadData();
-        this.getCommand("time").setExecutor(new TimeCommand(this));
+        this.getCommand("playtime").setExecutor(new TimeCommand(this));
         this.getCommand("timetop").setExecutor(new TimeTopCommand(this));
         this.getCommand("timetracker").setExecutor(new TimeTrackerCommand(this));
 
         getServer().getConsoleSender().sendMessage(
-                MAGENTA + "[TimeTracker] " + GREEN + "✔ " + GRAY + "Commands /time, /timetop and /timetracker ready." + RESET
+                MAGENTA + "[TimeTracker] " + GREEN + "✔ " + GRAY + "Commands /playtime, /timetop and /timetracker ready." + RESET
         );
     }
 

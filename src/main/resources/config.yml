@@ -17,7 +17,7 @@
 # Prefix shown at the start of messages
 prefix: "&d[TIME]"
 
-# ── Command /time ────────────────────────
+# ── Command /playtime ────────────────────
 time:
   player-only: "&cThis command can only be used by players."
   format: "{prefix} &f{player} &f➤ &7Time played: &e{days} days, {hours} hours and {minutes} minutes."
@@ -28,7 +28,7 @@ timetracker:
   reload: "&aConfiguration reloaded successfully."
   help-header: "&8--------- &d[TimeTracker Help] &8---------"
   help-lines:
-    - "&e/time &7- Shows your total playtime."
+    - "&e/playtime &7- Shows your total playtime."
     - "&e/timetop [page] &7- Shows the top playtime ranking (offline included)."
     - "&e/timetracker remove <player> &7- &c[OP] &7Removes a player from the top."
     - "&e/timetracker restore <player> &7- &c[OP] &7Restores a removed player to the top."

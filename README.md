@@ -15,7 +15,7 @@ A Paper Minecraft plugin that tracks and displays playtime for all players — o
 
 | Command | Description |
 |---|---|
-| `/time` | Broadcasts your total playtime to all players |
+| `/playtime` | Broadcasts your total playtime to all players |
 | `/timetop [page]` | Shows the playtime ranking (5 players per page, offline included) |
 | `/timetracker help` | Shows all available commands |
 | `/timetracker reload` | Reloads `config.yml` without restarting the server |

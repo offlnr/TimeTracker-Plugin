@@ -8,9 +8,9 @@ load: POSTWORLD
 authors: [ Offlnr ]
 
 commands:
-  time:
+  playtime:
     description: Shows how many days, hours and minutes you have played on the server.
-    usage: /time
+    usage: /playtime
   timetop:
     description: Shows a ranked list of the online players with the most playtime.
     usage: /timetop
