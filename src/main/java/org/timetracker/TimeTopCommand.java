@@ -66,12 +66,16 @@ public class TimeTopCommand implements CommandExecutor {
 
         for (int i = start; i < end; i++) {
             PlayerTime pt = players.get(i);
-            int totalHours = (int) ((pt.ticks() / 20) / 3600);
+            int totalMinutes = (int) ((pt.ticks() / 20) / 60);
+            int totalHours   = totalMinutes / 60;
+            int totalDays    = totalHours / 24;
 
             String line = lineFormat
                     .replace("{position}", String.valueOf(i + 1))
                     .replace("{player}", pt.name())
-                    .replace("{hours}", String.valueOf(totalHours));
+                    .replace("{days}", String.valueOf(totalDays))
+                    .replace("{hours}", String.valueOf(totalHours % 24))
+                    .replace("{minutes}", String.valueOf(totalMinutes % 60));
 
             sender.sendMessage(parse(line));
         }
@@ -115,7 +119,7 @@ public class TimeTopCommand implements CommandExecutor {
                     ticks = custom.get("minecraft:play_time").getAsLong();
                 }
 
-                if (ticks > 0) {
+                if (ticks >= 1200) {
                     result.add(new PlayerTime(name, ticks));
                 }
             } catch (Exception ignored) {}

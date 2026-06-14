@@ -79,4 +79,9 @@ public final class TimeTracker extends JavaPlugin {
         excludedPlayers.add(uuid);
         saveData();
     }
+
+    public void removeExclusion(UUID uuid) {
+        excludedPlayers.remove(uuid);
+        saveData();
+    }
 }

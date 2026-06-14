@@ -38,6 +38,7 @@ public class TimeTrackerCommand implements CommandExecutor {
             }
             case "help" -> sendHelp(sender);
             case "remove" -> handleRemove(sender, args);
+            case "restore" -> handleRestore(sender, args);
             default -> sendUsage(sender);
         }
         return true;
@@ -74,6 +75,41 @@ public class TimeTrackerCommand implements CommandExecutor {
         String name = target.getName() != null ? target.getName() : targetName;
         String msg = plugin.getConfig().getString("timetracker.remove-success",
                 "&aPlayer &f{player} &ahas been permanently removed from the top.")
+                .replace("{player}", name);
+        sender.sendMessage(parse(msg));
+    }
+
+    private void handleRestore(CommandSender sender, String[] args) {
+        if (!sender.isOp()) {
+            String msg = plugin.getConfig().getString("timetracker.restore-no-permission",
+                    "&cOnly operators can use this command.");
+            sender.sendMessage(parse(msg));
+            return;
+        }
+
+        if (args.length < 2) {
+            String msg = plugin.getConfig().getString("timetracker.restore-usage",
+                    "&cUsage: &f/timetracker restore <player>");
+            sender.sendMessage(parse(msg));
+            return;
+        }
+
+        String targetName = args[1];
+        OfflinePlayer target = findPlayer(targetName);
+
+        if (target == null) {
+            String msg = plugin.getConfig().getString("timetracker.restore-not-found",
+                    "&cPlayer &f{player} &cwas not found.")
+                    .replace("{player}", targetName);
+            sender.sendMessage(parse(msg));
+            return;
+        }
+
+        plugin.removeExclusion(target.getUniqueId());
+
+        String name = target.getName() != null ? target.getName() : targetName;
+        String msg = plugin.getConfig().getString("timetracker.restore-success",
+                "&aPlayer &f{player} &ahas been restored to the top.")
                 .replace("{player}", name);
         sender.sendMessage(parse(msg));
     }
