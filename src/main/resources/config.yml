@@ -1,0 +1,47 @@
+# ─────────────────────────────────────────
+#   SintaxisTimeTracker - Configuration
+# ─────────────────────────────────────────
+# Use color codes with & (example: &a green, &c red, &d magenta, &e yellow)
+# Full list: https://minecraft.wiki/w/Formatting_codes
+#
+# Available placeholders:
+#   {prefix}    → the prefix defined below
+#   {player}    → player name
+#   {days}      → days played        (time.format only)
+#   {hours}     → hours played
+#   {minutes}   → minutes played     (time.format only)
+#   {position}  → rank position      (timetop.line-format only)
+#   {page}      → current page       (timetop.footer only)
+#   {total}     → total pages        (timetop.footer only)
+
+# Prefix shown at the start of messages
+prefix: "&d[TIME]"
+
+# ── Command /time ────────────────────────
+time:
+  player-only: "&cThis command can only be used by players."
+  format: "{prefix} &f{player} &f➤ &7Time played: &e{days} days, {hours} hours and {minutes} minutes."
+
+# ── Command /timetracker ─────────────────
+timetracker:
+  usage: "&cUsage: &f/timetracker <reload|help|remove>"
+  reload: "&aConfiguration reloaded successfully."
+  help-header: "&8--------- &d[TimeTracker Help] &8---------"
+  help-lines:
+    - "&e/time &7- Shows your total playtime."
+    - "&e/timetop [page] &7- Shows the top playtime ranking (offline included)."
+    - "&e/timetracker remove <player> &7- &c[OP] &7Removes a player from the top."
+    - "&e/timetracker reload &7- &c[OP] &7Reloads the configuration."
+    - "&e/timetracker help &7- Shows this help message."
+  help-footer: "&8-----------------------------------------"
+  remove-no-permission: "&cOnly operators can use this command."
+  remove-usage: "&cUsage: &f/timetracker remove <player>"
+  remove-not-found: "&cPlayer &f{player} &cwas not found."
+  remove-success: "&aPlayer &f{player} &ahas been permanently removed from the top."
+
+# ── Command /timetop ─────────────────────
+timetop:
+  no-players: "&cNo player data found."
+  header: "&8--------- &d[TOP PLAYTIME] &8---------"
+  footer: "&8-------- &7Page {page}&8/&7{total} &8--------"
+  line-format: "&6{position}. &f{player} &f➤ &e{hours} hours"

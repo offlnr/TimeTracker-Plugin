@@ -1,0 +1,19 @@
+name: TimeTracker
+version: '${version}'
+
+main: org.timetracker.TimeTracker
+api-version: '1.21.11'
+load: POSTWORLD
+
+authors: [ Offlnr ]
+
+commands:
+  time:
+    description: Shows how many days, hours and minutes you have played on the server.
+    usage: /time
+  timetop:
+    description: Shows a ranked list of the online players with the most playtime.
+    usage: /timetop
+  timetracker:
+    description: Main TimeTracker command. Use /timetracker help for more info.
+    usage: /timetracker <reload|help>
